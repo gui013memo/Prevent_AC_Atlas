@@ -38,9 +38,6 @@ namespace Auto_click_atlas_2
             this.carregarListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_restante = new System.Windows.Forms.TextBox();
             this.tb_instrucoes = new System.Windows.Forms.TextBox();
             this.lb_instrucoes = new System.Windows.Forms.Label();
             this.tb_X = new System.Windows.Forms.TextBox();
@@ -60,11 +57,11 @@ namespace Auto_click_atlas_2
             this.btn_Start.FlatAppearance.BorderSize = 10;
             this.btn_Start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Start.ForeColor = System.Drawing.Color.White;
             this.btn_Start.Location = new System.Drawing.Point(12, 336);
             this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(172, 67);
+            this.btn_Start.Size = new System.Drawing.Size(440, 67);
             this.btn_Start.TabIndex = 15;
             this.btn_Start.Text = "START (S)";
             this.btn_Start.UseVisualStyleBackColor = false;
@@ -77,11 +74,11 @@ namespace Auto_click_atlas_2
             this.btn_Stop.FlatAppearance.BorderSize = 20;
             this.btn_Stop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Stop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Stop.ForeColor = System.Drawing.Color.Black;
             this.btn_Stop.Location = new System.Drawing.Point(11, 409);
             this.btn_Stop.Name = "btn_Stop";
-            this.btn_Stop.Size = new System.Drawing.Size(172, 106);
+            this.btn_Stop.Size = new System.Drawing.Size(441, 106);
             this.btn_Stop.TabIndex = 16;
             this.btn_Stop.Text = "Stop (Space)";
             this.btn_Stop.UseVisualStyleBackColor = false;
@@ -90,11 +87,11 @@ namespace Auto_click_atlas_2
             // 
             this.cb_enable_btns.AutoSize = true;
             this.cb_enable_btns.BackColor = System.Drawing.Color.Gold;
-            this.cb_enable_btns.Font = new System.Drawing.Font("Segoe UI", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.cb_enable_btns.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.cb_enable_btns.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cb_enable_btns.Location = new System.Drawing.Point(91, 271);
             this.cb_enable_btns.Name = "cb_enable_btns";
-            this.cb_enable_btns.Size = new System.Drawing.Size(286, 34);
+            this.cb_enable_btns.Size = new System.Drawing.Size(271, 34);
             this.cb_enable_btns.TabIndex = 27;
             this.cb_enable_btns.Text = "HABILITAR CONTROLES";
             this.cb_enable_btns.UseVisualStyleBackColor = false;
@@ -105,8 +102,7 @@ namespace Auto_click_atlas_2
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
-            this.creditosToolStripMenuItem,
-            this.configToolStripMenuItem});
+            this.creditosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(464, 33);
@@ -143,33 +139,6 @@ namespace Auto_click_atlas_2
             this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(180, 34);
             this.creditosToolStripMenuItem1.Text = "&Creditos";
             this.creditosToolStripMenuItem1.Click += new System.EventHandler(this.creditosToolStripMenuItem1_Click);
-            // 
-            // configToolStripMenuItem
-            // 
-            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(16, 29);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(275, 198);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 25);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Repetir";
-            // 
-            // tb_restante
-            // 
-            this.tb_restante.Enabled = false;
-            this.tb_restante.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_restante.Location = new System.Drawing.Point(268, 81);
-            this.tb_restante.Name = "tb_restante";
-            this.tb_restante.ReadOnly = true;
-            this.tb_restante.Size = new System.Drawing.Size(70, 42);
-            this.tb_restante.TabIndex = 64;
-            this.tb_restante.Text = "0";
-            this.tb_restante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_instrucoes
             // 
@@ -236,7 +205,7 @@ namespace Auto_click_atlas_2
             // tb_interval
             // 
             this.tb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_interval.Location = new System.Drawing.Point(268, 129);
+            this.tb_interval.Location = new System.Drawing.Point(26, 561);
             this.tb_interval.Name = "tb_interval";
             this.tb_interval.Size = new System.Drawing.Size(51, 31);
             this.tb_interval.TabIndex = 62;
@@ -247,7 +216,7 @@ namespace Auto_click_atlas_2
             // 
             this.lb_interval.AutoSize = true;
             this.lb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_interval.Location = new System.Drawing.Point(268, 155);
+            this.lb_interval.Location = new System.Drawing.Point(362, 567);
             this.lb_interval.Name = "lb_interval";
             this.lb_interval.Size = new System.Drawing.Size(81, 25);
             this.lb_interval.TabIndex = 63;
@@ -256,7 +225,7 @@ namespace Auto_click_atlas_2
             // tb_repete
             // 
             this.tb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_repete.Location = new System.Drawing.Point(268, 172);
+            this.tb_repete.Location = new System.Drawing.Point(374, 527);
             this.tb_repete.Name = "tb_repete";
             this.tb_repete.Size = new System.Drawing.Size(51, 31);
             this.tb_repete.TabIndex = 57;
@@ -270,8 +239,6 @@ namespace Auto_click_atlas_2
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(464, 643);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tb_restante);
             this.Controls.Add(this.tb_instrucoes);
             this.Controls.Add(this.lb_instrucoes);
             this.Controls.Add(this.tb_X);
