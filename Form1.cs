@@ -478,7 +478,7 @@ namespace Auto_click_atlas_2
         //    }
         //}
 
-       
+
         //      ======= Botoes END =======
 
 
@@ -502,7 +502,7 @@ namespace Auto_click_atlas_2
                         btn_Start.Refresh();
 
                         repeticoes++;
-                       
+
 
                         bool vazio = false;
                         do
@@ -510,7 +510,7 @@ namespace Auto_click_atlas_2
                             //Instruction list global
                             for (byte i = 0; i < Instrucoes_Global.Length; i++)
                             {
-                             
+
 
 
                                 if (Instrucoes_Global[0] == null)
@@ -532,12 +532,12 @@ namespace Auto_click_atlas_2
 
 
                             repeticoes--;
-                           // tb_restante.Text = repeticoes.ToString();
+                            // tb_restante.Text = repeticoes.ToString();
 
-                           // if (f_stop)
-                          //      tb_restante.Text = "0";
+                            // if (f_stop)
+                            //      tb_restante.Text = "0";
 
-                           // tb_restante.Refresh();
+                            // tb_restante.Refresh();
 
                         } while (repeticoes > 0 && !f_stop && !vazio);
                     }
@@ -603,8 +603,6 @@ namespace Auto_click_atlas_2
             }
         }
 
-        
-
         /* --- BUTTONS END --- */
 
         /* ---- CHECK BOX ---- */
@@ -612,11 +610,6 @@ namespace Auto_click_atlas_2
         private void cb_enable_btns_CheckedChanged(object sender, EventArgs e)
         {
             this.ActiveControl = null;  //Para tirar o foco do cb e nao ser checado pela tecla SPACE
-            CorPixel();
-            //recordState = 0;
-            //f_btn_record = false;
-            //btn_Record.BackColor = Color.White;
-            //btn_Record.Text = "RECORD (G)";
         }
 
         /* ---- CHECK BOX END ---- */
@@ -711,7 +704,7 @@ namespace Auto_click_atlas_2
             ofd.Filter = "Lista de instrucoes | *.txt";
             ofd.ShowDialog();
 
-            
+
 
             using (StreamReader reader = new StreamReader(ofd.FileName))
             {
@@ -726,21 +719,18 @@ namespace Auto_click_atlas_2
                         if (line.Contains("Click L"))
                         {
                             tb_instrucoes.Text += line + "\r\n";
+                            //tb_instrucoes.Text += line.Substring(15, 4) + "\r\n";
+                            Int16.TryParse(line.Substring(15, 4), out short xParsed);
+                            tb_instrucoes.Text += "xParsed: " + xParsed.ToString() + "\r\n";
 
-                            string teste = " 12  ";
-
-                            Int16.TryParse(teste, out short xteste);
-
-
-
-                            Int16.TryParse(line.Substring(13, 4), out short xParsed);
                             Int16.TryParse(line.Substring(22, (line.Length - 22)), out short yParsed);
+                            tb_instrucoes.Text += "yParsed: " + yParsed.ToString() + "\r\n";
 
                             setInstructionList(xParsed, yParsed, '¬');
                         }
                         else if (line.Contains("Click R"))
                         {
-                            tb_instrucoes.Text += line + "\r\n";
+                            //tb_instrucoes.Text += line + "\r\n";
 
                             Int16.TryParse(line.Substring(13, 4), out short xParsed);
                             Int16.TryParse(line.Substring(22, (line.Length - 22)), out short yParsed);
@@ -752,12 +742,7 @@ namespace Auto_click_atlas_2
             }
         }
 
-        private void gb_pause_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private     void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Unsubscribe();
         }

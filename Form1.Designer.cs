@@ -159,7 +159,6 @@ namespace Auto_click_atlas_2
             this.tb_instrucoes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_instrucoes.Size = new System.Drawing.Size(431, 144);
             this.tb_instrucoes.TabIndex = 55;
-            this.tb_instrucoes.Text = "TESTE";
             // 
             // lb_StepCounter
             // 
