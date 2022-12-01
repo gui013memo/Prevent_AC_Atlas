@@ -59,6 +59,7 @@ namespace Auto_click_atlas_2
             this.btn_Start.FlatAppearance.BorderSize = 10;
             this.btn_Start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btn_Start.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Start.ForeColor = System.Drawing.Color.Black;
             this.btn_Start.Location = new System.Drawing.Point(13, 301);
@@ -76,6 +77,7 @@ namespace Auto_click_atlas_2
             this.btn_Stop.FlatAppearance.BorderSize = 20;
             this.btn_Stop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Stop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Stop.ForeColor = System.Drawing.Color.Black;
             this.btn_Stop.Location = new System.Drawing.Point(13, 374);
@@ -101,6 +103,7 @@ namespace Auto_click_atlas_2
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Gray;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
@@ -121,6 +124,7 @@ namespace Auto_click_atlas_2
             // 
             // carregarListaToolStripMenuItem
             // 
+            this.carregarListaToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
             this.carregarListaToolStripMenuItem.Name = "carregarListaToolStripMenuItem";
             this.carregarListaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.carregarListaToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
@@ -129,6 +133,7 @@ namespace Auto_click_atlas_2
             // 
             // creditosToolStripMenuItem
             // 
+            this.creditosToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
             this.creditosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.creditosToolStripMenuItem1});
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
@@ -137,6 +142,7 @@ namespace Auto_click_atlas_2
             // 
             // creditosToolStripMenuItem1
             // 
+            this.creditosToolStripMenuItem1.BackColor = System.Drawing.Color.Gray;
             this.creditosToolStripMenuItem1.Name = "creditosToolStripMenuItem1";
             this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(180, 34);
             this.creditosToolStripMenuItem1.Text = "&Creditos";
@@ -280,8 +286,8 @@ namespace Auto_click_atlas_2
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::AutoClick_ATL.Properties.Resources.Template_Atlas_Black;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::AutoClick_ATL.Properties.Resources.Template_Atlas_Black1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(464, 643);
             this.Controls.Add(this.label1);
@@ -301,6 +307,7 @@ namespace Auto_click_atlas_2
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(860, 393);
             this.MainMenuStrip = this.menuStrip1;
