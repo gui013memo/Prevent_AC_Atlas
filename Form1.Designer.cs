@@ -3,8 +3,8 @@ namespace Auto_click_atlas_2
 {
     partial class Form1
     {
-        /* testeee  */
-        /// <summary>
+        /* testeee  sssss*/
+        /// <summary> s 
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
