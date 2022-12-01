@@ -54,18 +54,18 @@ namespace Auto_click_atlas_2
             // 
             // btn_Start
             // 
-            this.btn_Start.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_Start.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_Start.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Start.FlatAppearance.BorderSize = 10;
             this.btn_Start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Start.ForeColor = System.Drawing.Color.White;
-            this.btn_Start.Location = new System.Drawing.Point(13, 322);
+            this.btn_Start.ForeColor = System.Drawing.Color.Black;
+            this.btn_Start.Location = new System.Drawing.Point(13, 301);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(440, 67);
             this.btn_Start.TabIndex = 15;
-            this.btn_Start.Text = "START (S)";
+            this.btn_Start.Text = "START";
             this.btn_Start.UseVisualStyleBackColor = false;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
@@ -78,11 +78,11 @@ namespace Auto_click_atlas_2
             this.btn_Stop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Stop.ForeColor = System.Drawing.Color.Black;
-            this.btn_Stop.Location = new System.Drawing.Point(12, 395);
+            this.btn_Stop.Location = new System.Drawing.Point(13, 374);
             this.btn_Stop.Name = "btn_Stop";
-            this.btn_Stop.Size = new System.Drawing.Size(441, 106);
+            this.btn_Stop.Size = new System.Drawing.Size(441, 99);
             this.btn_Stop.TabIndex = 16;
-            this.btn_Stop.Text = "Stop (Space)";
+            this.btn_Stop.Text = "STOP (SPACE)";
             this.btn_Stop.UseVisualStyleBackColor = false;
             // 
             // cb_enable_btns
@@ -91,7 +91,7 @@ namespace Auto_click_atlas_2
             this.cb_enable_btns.BackColor = System.Drawing.Color.Black;
             this.cb_enable_btns.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.cb_enable_btns.ForeColor = System.Drawing.Color.White;
-            this.cb_enable_btns.Location = new System.Drawing.Point(96, 282);
+            this.cb_enable_btns.Location = new System.Drawing.Point(103, 255);
             this.cb_enable_btns.Name = "cb_enable_btns";
             this.cb_enable_btns.Size = new System.Drawing.Size(271, 34);
             this.cb_enable_btns.TabIndex = 27;
@@ -144,13 +144,16 @@ namespace Auto_click_atlas_2
             // 
             // tb_instrucoes
             // 
+            this.tb_instrucoes.BackColor = System.Drawing.Color.Black;
+            this.tb_instrucoes.ForeColor = System.Drawing.Color.White;
             this.tb_instrucoes.Location = new System.Drawing.Point(12, 68);
             this.tb_instrucoes.Multiline = true;
             this.tb_instrucoes.Name = "tb_instrucoes";
             this.tb_instrucoes.ReadOnly = true;
             this.tb_instrucoes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_instrucoes.Size = new System.Drawing.Size(431, 161);
+            this.tb_instrucoes.Size = new System.Drawing.Size(431, 144);
             this.tb_instrucoes.TabIndex = 55;
+            this.tb_instrucoes.Text = "TESTE";
             // 
             // lb_StepCounter
             // 
@@ -169,7 +172,7 @@ namespace Auto_click_atlas_2
             this.tb_X.BackColor = System.Drawing.Color.Black;
             this.tb_X.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_X.ForeColor = System.Drawing.Color.White;
-            this.tb_X.Location = new System.Drawing.Point(161, 235);
+            this.tb_X.Location = new System.Drawing.Point(163, 218);
             this.tb_X.Name = "tb_X";
             this.tb_X.ReadOnly = true;
             this.tb_X.Size = new System.Drawing.Size(51, 31);
@@ -182,7 +185,7 @@ namespace Auto_click_atlas_2
             this.tb_Y.BackColor = System.Drawing.Color.Black;
             this.tb_Y.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_Y.ForeColor = System.Drawing.Color.White;
-            this.tb_Y.Location = new System.Drawing.Point(259, 235);
+            this.tb_Y.Location = new System.Drawing.Point(261, 218);
             this.tb_Y.Name = "tb_Y";
             this.tb_Y.ReadOnly = true;
             this.tb_Y.Size = new System.Drawing.Size(51, 31);
@@ -196,7 +199,7 @@ namespace Auto_click_atlas_2
             this.lb_X.BackColor = System.Drawing.Color.Black;
             this.lb_X.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_X.ForeColor = System.Drawing.Color.White;
-            this.lb_X.Location = new System.Drawing.Point(138, 238);
+            this.lb_X.Location = new System.Drawing.Point(140, 221);
             this.lb_X.Name = "lb_X";
             this.lb_X.Size = new System.Drawing.Size(29, 25);
             this.lb_X.TabIndex = 60;
@@ -208,7 +211,7 @@ namespace Auto_click_atlas_2
             this.lb_Y.BackColor = System.Drawing.Color.Black;
             this.lb_Y.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_Y.ForeColor = System.Drawing.Color.White;
-            this.lb_Y.Location = new System.Drawing.Point(236, 239);
+            this.lb_Y.Location = new System.Drawing.Point(238, 222);
             this.lb_Y.Name = "lb_Y";
             this.lb_Y.Size = new System.Drawing.Size(28, 25);
             this.lb_Y.TabIndex = 61;
@@ -216,8 +219,10 @@ namespace Auto_click_atlas_2
             // 
             // tb_interval
             // 
+            this.tb_interval.BackColor = System.Drawing.Color.Black;
             this.tb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_interval.Location = new System.Drawing.Point(13, 527);
+            this.tb_interval.ForeColor = System.Drawing.Color.White;
+            this.tb_interval.Location = new System.Drawing.Point(375, 490);
             this.tb_interval.Name = "tb_interval";
             this.tb_interval.Size = new System.Drawing.Size(51, 31);
             this.tb_interval.TabIndex = 62;
@@ -227,8 +232,10 @@ namespace Auto_click_atlas_2
             // lb_interval
             // 
             this.lb_interval.AutoSize = true;
+            this.lb_interval.BackColor = System.Drawing.Color.Black;
             this.lb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_interval.Location = new System.Drawing.Point(362, 567);
+            this.lb_interval.ForeColor = System.Drawing.Color.White;
+            this.lb_interval.Location = new System.Drawing.Point(362, 601);
             this.lb_interval.Name = "lb_interval";
             this.lb_interval.Size = new System.Drawing.Size(81, 25);
             this.lb_interval.TabIndex = 63;
@@ -236,8 +243,10 @@ namespace Auto_click_atlas_2
             // 
             // tb_repete
             // 
+            this.tb_repete.BackColor = System.Drawing.Color.Black;
             this.tb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tb_repete.Location = new System.Drawing.Point(374, 527);
+            this.tb_repete.ForeColor = System.Drawing.Color.White;
+            this.tb_repete.Location = new System.Drawing.Point(375, 567);
             this.tb_repete.Name = "tb_repete";
             this.tb_repete.Size = new System.Drawing.Size(51, 31);
             this.tb_repete.TabIndex = 57;
@@ -259,8 +268,10 @@ namespace Auto_click_atlas_2
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 567);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(362, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 65;
