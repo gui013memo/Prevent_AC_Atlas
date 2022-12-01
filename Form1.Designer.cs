@@ -3,6 +3,7 @@ namespace Auto_click_atlas_2
 {
     partial class Form1
     {
+        /* testeee  */
         /// <summary>
         ///  Required designer variable.
         /// </summary>
