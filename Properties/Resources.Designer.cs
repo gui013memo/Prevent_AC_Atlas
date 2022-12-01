@@ -69,5 +69,15 @@ namespace AutoClick_ATL.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Template_Atlas_Black {
+            get {
+                object obj = ResourceManager.GetObject("Template_Atlas_Black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

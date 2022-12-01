@@ -757,7 +757,7 @@ namespace Auto_click_atlas_2
 
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private     void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Unsubscribe();
         }
