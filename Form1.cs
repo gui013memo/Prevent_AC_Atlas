@@ -398,18 +398,17 @@ namespace Auto_click_atlas_2
 
             if (cb_enable_btns.Checked)
             {
-
-
-
                 //START
                 if (f_btn_record == false && f_stop == false && (e.KeyChar == 's' || e.KeyChar == 'S'))
                 {
+                    //tb_instrucoes.Text = "START!";
                     btn_Start.PerformClick();
                 }
 
                 //STOP
                 if (e.KeyChar == ' ')
                 {
+                    //tb_instrucoes.Text = "SPACE HITED!";
                     Stop_Execution();
                 }
 
@@ -490,11 +489,13 @@ namespace Auto_click_atlas_2
 
             startState++;
 
-            if (startState == 1 && !f_stop && !f_btn_record && cb_enable_btns.Checked)
+            if (startState == 1 && !f_stop && cb_enable_btns.Checked)
             {
                 Thread thread1 = new Thread(t =>
                 {
                     {
+                        tb_instrucoes.Text = "START!";
+
                         f_Start = true;
 
                         btn_Start.Text = "RUNNING!";
@@ -510,13 +511,10 @@ namespace Auto_click_atlas_2
                             //Instruction list global
                             for (byte i = 0; i < Instrucoes_Global.Length; i++)
                             {
-
-
-
                                 if (Instrucoes_Global[0] == null)
                                 {
                                     Form frm = new Form { TopMost = true };
-                                    //MessageBox.Show("Nao há instrucoes a executar!", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                                     MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes para executar!", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     vazio = true;
                                     break;
@@ -529,21 +527,12 @@ namespace Auto_click_atlas_2
 
                                 PerformClick(Instrucoes_Global[i].X, Instrucoes_Global[i].Y, Instrucoes_Global[i].Key);
                             }
-
-
-                            repeticoes--;
-                            // tb_restante.Text = repeticoes.ToString();
-
-                            // if (f_stop)
-                            //      tb_restante.Text = "0";
-
-                            // tb_restante.Refresh();
-
                         } while (repeticoes > 0 && !f_stop && !vazio);
                     }
 
                     btn_Start.Text = "START (S)";
-                    //btn_Start.BackColor = Color.ForestGreen; btn_Start.ForeColor = Color.White;
+                    btn_Start.BackColor = System.Drawing.Color.DodgerBlue;
+                    btn_Start.ForeColor = Color.Black;
                     btn_Start.Refresh();
 
                     startState = 0;
@@ -559,50 +548,6 @@ namespace Auto_click_atlas_2
             }
 
         }
-
-        private void btn_Continue_Click(object sender, EventArgs e)
-        {
-            if (f_Start)
-            {
-                f_pause = false;
-            }
-        }
-
-        private void btn_Clear_Click(object sender, EventArgs e)
-        {
-            tb_instrucoes.Text = tb_instrucoes.Text.LastIndexOf("\n").ToString();
-            Array.Clear(Instrucoes_Global, instructionNumber - 1, 1);
-
-            instructionQuantity--;
-            lb_instructions_quantity.Text = instructionQuantity.ToString();
-
-            //short lastLine_tb_instr = 0;
-
-            //input = input.Substring(0, input.LastIndexOf("/") + 1);
-            tb_instrucoes.Text = tb_instrucoes.Text.Substring(0, tb_instrucoes.Text.LastIndexOf("\n") + 1);
-
-
-            //tb_instrucoes.Text = tb_instrucoes.Text.Remove(3);
-
-
-            if (false)
-            {
-                tb_instrucoes.Text = "";  //tb_instrucoes.Text.Remove((instructionNumber - 1) * 26, (instructionNumber - 1) * 30);
-
-                Array.Clear(Instrucoes_Global, 0, Instrucoes_Global.Length);
-                Array.Clear(Instrucoes_1, 0, Instrucoes_1.Length);
-                Array.Clear(Instrucoes_2, 0, Instrucoes_2.Length);
-                Array.Clear(Instrucoes_3, 0, Instrucoes_3.Length);
-                Array.Clear(Instrucoes_4, 0, Instrucoes_4.Length);
-                Array.Clear(Instrucoes_5, 0, Instrucoes_5.Length);
-
-                instructionNumber = 0;
-                f_mode = 0;
-                instructionQuantity = 0;
-                lb_instructions_quantity.Text = "0";
-            }
-        }
-
         /* --- BUTTONS END --- */
 
         /* ---- CHECK BOX ---- */
@@ -616,13 +561,6 @@ namespace Auto_click_atlas_2
 
 
         /* ---- TEXT BOX ---- */
-        private void tb_Consulta_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-
         private void tb_interval_TextChanged(object sender, EventArgs e)
         {
             string digitsOnly = String.Empty;
@@ -632,26 +570,20 @@ namespace Auto_click_atlas_2
                 if (c >= '0' && c <= '9') digitsOnly += c;
             }
 
-
             Int16.TryParse(digitsOnly, out short intervalo);
             interval = intervalo;
 
             tb_interval.Text = digitsOnly;
-
-
         }
 
         private void tb_repete_TextChanged(object sender, EventArgs e)
         {
-
-
             string digitsOnly = String.Empty;
             foreach (char c in tb_repete.Text)
             {
                 // Do not use IsDigit as it will include more than the characters 0 through to 9
                 if (c >= '0' && c <= '9') digitsOnly += c;
             }
-
 
             Int16.TryParse(digitsOnly, out short repeticaoes_);
             repeticoes = repeticaoes_;
@@ -660,7 +592,6 @@ namespace Auto_click_atlas_2
         }
 
         /* ---- TEXT BOX END---- */
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -678,7 +609,6 @@ namespace Auto_click_atlas_2
         {
             var form = new form2 { TopMost = true };
             form.Show();
-
         }
 
         private void carregarListaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -686,8 +616,6 @@ namespace Auto_click_atlas_2
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Lista de instrucoes | *.txt";
             ofd.ShowDialog();
-
-
 
             using (StreamReader reader = new StreamReader(ofd.FileName))
             {
@@ -718,7 +646,8 @@ namespace Auto_click_atlas_2
 
                             setInstructionList(xParsed, yParsed, '¨');
                         }
-                    }else if(empty == 0)
+                    }
+                    else if (empty == 0)
                     {
                         MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
