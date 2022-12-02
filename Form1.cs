@@ -681,23 +681,6 @@ namespace Auto_click_atlas_2
 
         }
 
-        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Lista de instrucoes | *.txt";
-            sfd.ShowDialog();
-
-            if (String.IsNullOrWhiteSpace(sfd.FileName) == false)
-            {
-                using (StreamWriter writer = new StreamWriter(sfd.FileName, false, System.Text.Encoding.UTF8))
-                {
-                    writer.Write(tb_instrucoes.Text);
-                    writer.Flush();
-                }
-            }
-
-        }
-
         private void carregarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -708,36 +691,43 @@ namespace Auto_click_atlas_2
 
             using (StreamReader reader = new StreamReader(ofd.FileName))
             {
-                string line = "testee";
+                string line;
+                short empty = 0;
 
                 do
                 {
                     line = reader.ReadLine();
 
+
                     if (line != null)
                     {
+                        empty++;
+
                         if (line.Contains("Click L"))
                         {
-                            tb_instrucoes.Text += line + "\r\n";
-                            //tb_instrucoes.Text += line.Substring(15, 4) + "\r\n";
                             Int16.TryParse(line.Substring(15, 4), out short xParsed);
-                            tb_instrucoes.Text += "xParsed: " + xParsed.ToString() + "\r\n";
 
-                            Int16.TryParse(line.Substring(22, (line.Length - 22)), out short yParsed);
-                            tb_instrucoes.Text += "yParsed: " + yParsed.ToString() + "\r\n";
+                            Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
 
                             setInstructionList(xParsed, yParsed, '¬');
                         }
                         else if (line.Contains("Click R"))
                         {
-                            //tb_instrucoes.Text += line + "\r\n";
-
-                            Int16.TryParse(line.Substring(13, 4), out short xParsed);
-                            Int16.TryParse(line.Substring(22, (line.Length - 22)), out short yParsed);
+                            Int16.TryParse(line.Substring(15, 4), out short xParsed);
+                            Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
 
                             setInstructionList(xParsed, yParsed, '¨');
                         }
+                    }else if(empty == 0)
+                    {
+                        MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                     }
+                    else
+                    {
+                        tb_instrucoes.Text = "Lista carregada!";
+                    }
+
                 } while (line != null);
             }
         }
