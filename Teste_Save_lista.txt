@@ -1,0 +1,4 @@
+﻿- Click L - X: 1091 - Y: 592
+- Click L - X: 1053 - Y: 524
+- Click R - X: 1115 - Y: 596
+- Click R - X: 1115 - Y: 596
