@@ -56,17 +56,16 @@ namespace Auto_click_atlas_2
             // 
             this.btn_Start.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_Start.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_Start.FlatAppearance.BorderSize = 10;
             this.btn_Start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btn_Start.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Start.ForeColor = System.Drawing.Color.Black;
             this.btn_Start.Location = new System.Drawing.Point(13, 301);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(440, 67);
             this.btn_Start.TabIndex = 15;
-            this.btn_Start.Text = "START";
+            this.btn_Start.Text = "START (S)";
             this.btn_Start.UseVisualStyleBackColor = false;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
@@ -74,11 +73,11 @@ namespace Auto_click_atlas_2
             // 
             this.btn_Stop.BackColor = System.Drawing.Color.Gold;
             this.btn_Stop.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_Stop.FlatAppearance.BorderSize = 20;
+            this.btn_Stop.FlatAppearance.BorderSize = 44;
             this.btn_Stop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Stop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Stop.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Stop.ForeColor = System.Drawing.Color.Black;
             this.btn_Stop.Location = new System.Drawing.Point(13, 374);
             this.btn_Stop.Name = "btn_Stop";
@@ -93,9 +92,9 @@ namespace Auto_click_atlas_2
             this.cb_enable_btns.BackColor = System.Drawing.Color.Black;
             this.cb_enable_btns.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.cb_enable_btns.ForeColor = System.Drawing.Color.White;
-            this.cb_enable_btns.Location = new System.Drawing.Point(103, 255);
+            this.cb_enable_btns.Location = new System.Drawing.Point(140, 257);
             this.cb_enable_btns.Name = "cb_enable_btns";
-            this.cb_enable_btns.Size = new System.Drawing.Size(271, 34);
+            this.cb_enable_btns.Size = new System.Drawing.Size(183, 24);
             this.cb_enable_btns.TabIndex = 27;
             this.cb_enable_btns.Text = "HABILITAR CONTROLES";
             this.cb_enable_btns.UseVisualStyleBackColor = false;
@@ -110,7 +109,7 @@ namespace Auto_click_atlas_2
             this.creditosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(464, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(464, 24);
             this.menuStrip1.TabIndex = 46;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,7 +118,7 @@ namespace Auto_click_atlas_2
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.carregarListaToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "&Arquivo";
             // 
             // carregarListaToolStripMenuItem
@@ -127,7 +126,7 @@ namespace Auto_click_atlas_2
             this.carregarListaToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
             this.carregarListaToolStripMenuItem.Name = "carregarListaToolStripMenuItem";
             this.carregarListaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.carregarListaToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
+            this.carregarListaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.carregarListaToolStripMenuItem.Text = "Carregar lista";
             this.carregarListaToolStripMenuItem.Click += new System.EventHandler(this.carregarListaToolStripMenuItem_Click);
             // 
@@ -137,14 +136,14 @@ namespace Auto_click_atlas_2
             this.creditosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.creditosToolStripMenuItem1});
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
-            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.creditosToolStripMenuItem.Text = "&Sobre";
             // 
             // creditosToolStripMenuItem1
             // 
             this.creditosToolStripMenuItem1.BackColor = System.Drawing.Color.Gray;
             this.creditosToolStripMenuItem1.Name = "creditosToolStripMenuItem1";
-            this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(180, 34);
+            this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
             this.creditosToolStripMenuItem1.Text = "&Creditos";
             this.creditosToolStripMenuItem1.Click += new System.EventHandler(this.creditosToolStripMenuItem1_Click);
             // 
@@ -168,7 +167,7 @@ namespace Auto_click_atlas_2
             this.lb_StepCounter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lb_StepCounter.Location = new System.Drawing.Point(126, 33);
             this.lb_StepCounter.Name = "lb_StepCounter";
-            this.lb_StepCounter.Size = new System.Drawing.Size(162, 32);
+            this.lb_StepCounter.Size = new System.Drawing.Size(109, 21);
             this.lb_StepCounter.TabIndex = 56;
             this.lb_StepCounter.Text = "Step Counter";
             // 
@@ -180,7 +179,7 @@ namespace Auto_click_atlas_2
             this.tb_X.Location = new System.Drawing.Point(163, 218);
             this.tb_X.Name = "tb_X";
             this.tb_X.ReadOnly = true;
-            this.tb_X.Size = new System.Drawing.Size(51, 31);
+            this.tb_X.Size = new System.Drawing.Size(51, 23);
             this.tb_X.TabIndex = 58;
             this.tb_X.Text = "0";
             this.tb_X.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -193,7 +192,7 @@ namespace Auto_click_atlas_2
             this.tb_Y.Location = new System.Drawing.Point(261, 218);
             this.tb_Y.Name = "tb_Y";
             this.tb_Y.ReadOnly = true;
-            this.tb_Y.Size = new System.Drawing.Size(51, 31);
+            this.tb_Y.Size = new System.Drawing.Size(51, 23);
             this.tb_Y.TabIndex = 59;
             this.tb_Y.Text = "0";
             this.tb_Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -206,7 +205,7 @@ namespace Auto_click_atlas_2
             this.lb_X.ForeColor = System.Drawing.Color.White;
             this.lb_X.Location = new System.Drawing.Point(140, 221);
             this.lb_X.Name = "lb_X";
-            this.lb_X.Size = new System.Drawing.Size(29, 25);
+            this.lb_X.Size = new System.Drawing.Size(18, 15);
             this.lb_X.TabIndex = 60;
             this.lb_X.Text = "X:";
             // 
@@ -218,7 +217,7 @@ namespace Auto_click_atlas_2
             this.lb_Y.ForeColor = System.Drawing.Color.White;
             this.lb_Y.Location = new System.Drawing.Point(238, 222);
             this.lb_Y.Name = "lb_Y";
-            this.lb_Y.Size = new System.Drawing.Size(28, 25);
+            this.lb_Y.Size = new System.Drawing.Size(17, 15);
             this.lb_Y.TabIndex = 61;
             this.lb_Y.Text = "Y:";
             // 
@@ -227,9 +226,9 @@ namespace Auto_click_atlas_2
             this.tb_interval.BackColor = System.Drawing.Color.Black;
             this.tb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_interval.ForeColor = System.Drawing.Color.White;
-            this.tb_interval.Location = new System.Drawing.Point(375, 490);
+            this.tb_interval.Location = new System.Drawing.Point(377, 500);
             this.tb_interval.Name = "tb_interval";
-            this.tb_interval.Size = new System.Drawing.Size(51, 31);
+            this.tb_interval.Size = new System.Drawing.Size(51, 23);
             this.tb_interval.TabIndex = 62;
             this.tb_interval.Text = "0";
             this.tb_interval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -240,9 +239,9 @@ namespace Auto_click_atlas_2
             this.lb_interval.BackColor = System.Drawing.Color.Black;
             this.lb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_interval.ForeColor = System.Drawing.Color.White;
-            this.lb_interval.Location = new System.Drawing.Point(362, 524);
+            this.lb_interval.Location = new System.Drawing.Point(375, 526);
             this.lb_interval.Name = "lb_interval";
-            this.lb_interval.Size = new System.Drawing.Size(81, 25);
+            this.lb_interval.Size = new System.Drawing.Size(53, 15);
             this.lb_interval.TabIndex = 63;
             this.lb_interval.Text = "Intervalo";
             // 
@@ -253,7 +252,7 @@ namespace Auto_click_atlas_2
             this.tb_repete.ForeColor = System.Drawing.Color.White;
             this.tb_repete.Location = new System.Drawing.Point(375, 567);
             this.tb_repete.Name = "tb_repete";
-            this.tb_repete.Size = new System.Drawing.Size(51, 31);
+            this.tb_repete.Size = new System.Drawing.Size(51, 23);
             this.tb_repete.TabIndex = 57;
             this.tb_repete.Text = "0";
             this.tb_repete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -266,7 +265,7 @@ namespace Auto_click_atlas_2
             this.lb_CurrentStep.ForeColor = System.Drawing.Color.White;
             this.lb_CurrentStep.Location = new System.Drawing.Point(294, 33);
             this.lb_CurrentStep.Name = "lb_CurrentStep";
-            this.lb_CurrentStep.Size = new System.Drawing.Size(28, 32);
+            this.lb_CurrentStep.Size = new System.Drawing.Size(19, 21);
             this.lb_CurrentStep.TabIndex = 64;
             this.lb_CurrentStep.Text = "0";
             // 
@@ -276,15 +275,16 @@ namespace Auto_click_atlas_2
             this.lb_repete.BackColor = System.Drawing.Color.Black;
             this.lb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_repete.ForeColor = System.Drawing.Color.White;
-            this.lb_repete.Location = new System.Drawing.Point(362, 601);
+            this.lb_repete.Location = new System.Drawing.Point(375, 593);
             this.lb_repete.Name = "lb_repete";
-            this.lb_repete.Size = new System.Drawing.Size(81, 25);
+            this.lb_repete.Size = new System.Drawing.Size(53, 15);
             this.lb_repete.TabIndex = 65;
             this.lb_repete.Text = "Intervalo";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::AutoClick_ATL.Properties.Resources.Template_Atlas_Black1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -312,7 +312,7 @@ namespace Auto_click_atlas_2
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Auto Clicker ATLAS v4";
+            this.Text = " ";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

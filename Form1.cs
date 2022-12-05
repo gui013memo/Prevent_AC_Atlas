@@ -8,53 +8,29 @@ using System.Diagnostics;
 using Gma.System.MouseKeyHook;
 using System.IO;
 
-
-
-/*Instruções MouseKeyHook:
+/*  TO DO 
+ *
+ * - Carregar corretamente a Lista de Instrucoes 
+ * 
+ * - Executar corretamente os clicks
+ *      - Conforme Cordenadas
+ *      - Conforme intervalo escolhido
  *      
+ * - Validacao por pixel
+ *      - Incluir na Lista de Instrucoes as cordenadas do pixel ser avaliado
+ *      - Rodar clicks com validacao de pixel e com intervalo pós click estipulado pelo usuario 
+ * 
+ * - Gerar log na lista de instrucao a cada acao
+ * 
+ * - Add textBox "Repeticoes" desejadas pelo usuario
+ *      - Add label "OS encerradas"
+ *      - Add label "Tempo estimado"
+ *      
+ *  /============ BUG FIX ============/
  *  
- *          1 - Para utilizar função Chamar no metodo "Subscribe" com "+=" e tambem no "Unsibscribe" com "-=" 
- *          
- *          2 - deve conter no codigo:
- *              
- *              private void Form1_Load(object sender, EventArgs e)
- *              
-                {
-                   Unsubscribe();
-                   Subscribe(Hook.GlobalEvents());
-                }
- *         
+ *  - Ao tentar carregar uma IL, se o usuario noa selecionar um arquivo e pressioanr "ESC" ocorre erro: "Empty path name is not legal"
  *  
- * 
- * 
- * 
- * 
- * */
-
-/*TODO
- *   !Resolver 
- *      - thread usando comando criado em outra thread impedindo o debug de funcionar (debugar e startar
- *      programa com instrucoes para observar este erro)! **DELEGATE**
- *      
- *      - arquivo salvo quando usado replica clicks em lugares errados
- *    
- * Current:
- *      
- *      Modificar "limpa" para limpar All e limpar ultima instrucao 
- *     
- * Next:
- * 
- * Criar função wait com caixa de dialogo para delay especifico em momentos da lista
- *      
- *      Manipular diretamenta area de transf. para ganhar tempo sem precisar usar Ctrl+V ou demais 
- *      1 - Criar modo de gravação de teclas direto do teclado fisico, ausentando o virtual (foco nas combinações)
- *      Alocaçao de memoria, mudar para dinamica conforme solicitação do user, nao estatico.
- *      auto rolagem da lista de instrucoes
- *           
- *           
- *      *     DONE - Comparação, == / > / <      
  */
-
 
 namespace Auto_click_atlas_2
 {
@@ -69,37 +45,21 @@ namespace Auto_click_atlas_2
         [DllImport("user32")]
         public static extern int SetCursorPos(int x, int y);
 
-
-        //private const int MOUSEEVENTF_MOVE = 0x0001; /* mouse move */
         private const int MOUSEEVENTF_LEFTDOWN = 0x0002; /* left button down */
         private const int MOUSEEVENTF_LEFTUP = 0x0004; /* left button up */
         private const int MOUSEEVENTF_RIGHTDOWN = 0x0008; /* right button down */
         private const int MOUSEEVENTF_RIGHTUP = 0x0010; /* right button up */
-        //private const int MOUSEEVENTF_MIDDLEDOWN = 0x0020; /* middle button down */
-        //private const int MOUSEEVENTF_MIDDLEUP = 0x0040; /* middle button up */
-        //private const int MOUSEEVENTF_XDOWN = 0x0080; /* x button down */
-        //private const int MOUSEEVENTF_XUP = 0x0100; /* x button down */
-        //private const int MOUSEEVENTF_WHEEL = 0x0800; /* wheel button rolled */
-        //private const int MOUSEEVENTF_VIRTUALDESK = 0x4000; /* map to entire virtual desktop */
-        //private const int MOUSEEVENTF_ABSOLUTE = 0x8000; /* absolute move */
-
 
         /*      GLOBAL VARIABLES       */
-
 
         // MEMORIAS
 
         bool f_btn_record = false;
-        byte recordState = 0;
 
         bool f_stop = false;
         byte stopState = 0;
 
         byte startState = 0;
-        bool f_Start = false;
-
-        bool f_pause = false;
-
 
         // MOUSE
 
@@ -496,8 +456,6 @@ namespace Auto_click_atlas_2
                     {
                         tb_instrucoes.Text = "START!";
 
-                        f_Start = true;
-
                         btn_Start.Text = "RUNNING!";
                         btn_Start.BackColor = Color.ForestGreen; btn_Start.ForeColor = Color.White;
                         btn_Start.Refresh();
@@ -536,7 +494,7 @@ namespace Auto_click_atlas_2
                     btn_Start.Refresh();
 
                     startState = 0;
-                    f_Start = false;
+
                     //if (indicesVazios == Instrucoes_Global.Length)
                     //  MessageBox.Show(new Form { TopMost = true }, "Não há Instrucoes para executar!!");
 
@@ -561,12 +519,12 @@ namespace Auto_click_atlas_2
 
 
         /* ---- TEXT BOX ---- */
+
         private void tb_interval_TextChanged(object sender, EventArgs e)
         {
             string digitsOnly = String.Empty;
-            foreach (char c in tb_interval.Text)
+            foreach (char c in tb_interval.Text) //Formatacao para permitir somente numeros no TextBox evitando letras
             {
-                // Do not use IsDigit as it will include more than the characters 0 through to 9
                 if (c >= '0' && c <= '9') digitsOnly += c;
             }
 
@@ -579,9 +537,8 @@ namespace Auto_click_atlas_2
         private void tb_repete_TextChanged(object sender, EventArgs e)
         {
             string digitsOnly = String.Empty;
-            foreach (char c in tb_repete.Text)
+            foreach (char c in tb_repete.Text)//Formatacao para permitir somente numeros no TextBox evitando letras
             {
-                // Do not use IsDigit as it will include more than the characters 0 through to 9
                 if (c >= '0' && c <= '9') digitsOnly += c;
             }
 
@@ -595,14 +552,8 @@ namespace Auto_click_atlas_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //if(cb_multi_Instructions.Checked)
-            //{
-            //    Instrucoes_Global ins
-            //}
-
             Unsubscribe();
             Subscribe(Hook.GlobalEvents());
-
         }
 
         private void creditosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -613,52 +564,56 @@ namespace Auto_click_atlas_2
 
         private void carregarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Lista de instrucoes | *.txt";
-            ofd.ShowDialog();
 
-            using (StreamReader reader = new StreamReader(ofd.FileName))
+            if (cb_enable_btns.Checked)
             {
-                string line;
-                short empty = 0;
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Lista de instrucoes | *.txt";
+                ofd.ShowDialog();
 
-                do
+                using (StreamReader reader = new StreamReader(ofd.FileName))
                 {
-                    line = reader.ReadLine();
+                    string line;
+                    short empty = 0;
 
-
-                    if (line != null)
+                    do
                     {
-                        empty++;
+                        line = reader.ReadLine();
 
-                        if (line.Contains("Click L"))
+                        if (line != null)
                         {
-                            Int16.TryParse(line.Substring(15, 4), out short xParsed);
+                            empty++;
 
-                            Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
+                            if (line.Contains("Click L"))
+                            {
+                                Int16.TryParse(line.Substring(15, 4), out short xParsed);
 
-                            setInstructionList(xParsed, yParsed, '¬');
+                                Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
+
+                                setInstructionList(xParsed, yParsed, '¬');
+                            }
+                            else if (line.Contains("Click R"))
+                            {
+                                Int16.TryParse(line.Substring(15, 4), out short xParsed);
+                                Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
+
+                                setInstructionList(xParsed, yParsed, '¨');
+                            }
                         }
-                        else if (line.Contains("Click R"))
+                        else if (empty == 0)
                         {
-                            Int16.TryParse(line.Substring(15, 4), out short xParsed);
-                            Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
-
-                            setInstructionList(xParsed, yParsed, '¨');
+                            MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;   
                         }
-                    }
-                    else if (empty == 0)
-                    {
-                        MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                    }
-                    else
-                    {
-                        tb_instrucoes.Text = "Lista carregada!";
-                    }
+                        else
+                        {
+                            tb_instrucoes.Text = "Lista carregada!";
+                        }
 
-                } while (line != null);
+                    } while (line != null);
+                }
             }
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

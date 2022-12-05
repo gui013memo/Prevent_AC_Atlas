@@ -26,5 +26,15 @@ namespace Auto_click_atlas_2
 
             //O site que resolveu meu problema: https://docs.microsoft.com/en-us/answers/questions/406989/winformapplication-systemcomponentmodelwin32except.html
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb2_Dev_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
