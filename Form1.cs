@@ -126,7 +126,7 @@ namespace Auto_click_atlas_2
             m_Events = null;
         }
 
-        /* ========== KeyMouseHook END========== */
+        /* ========== KeyMouseHook END ========== */
 
         public void PerformClick(int X, int Y, char Key)
         {
