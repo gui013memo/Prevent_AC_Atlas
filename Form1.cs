@@ -52,37 +52,23 @@ namespace Auto_click_atlas_2
 
         /*      GLOBAL VARIABLES       */
 
-        // MEMORIAS
-
+        // STATES FLAGS
         bool f_btn_record = false;
-
         bool f_stop = false;
         byte stopState = 0;
-
         byte startState = 0;
 
         // MOUSE
-
         short x, y;
 
-
-        //GENERAL PURPOUSE
+        // GENERAL PURPOUSE
         short interval = 0;
         short repeticoes = 0;
-        byte f_mode = 0;
-        byte modeSelected = 0;
 
-        // Instructions
-
+        // INSTRUCTIONS
         byte instructionQuantity = 0;
         byte instructionNumber = 0;
-        Instrucoes[] Instrucoes_Global = new Instrucoes[90];
-        Instrucoes[] Instrucoes_1 = new Instrucoes[10];
-        Instrucoes[] Instrucoes_2 = new Instrucoes[10];
-        Instrucoes[] Instrucoes_3 = new Instrucoes[10];
-        Instrucoes[] Instrucoes_4 = new Instrucoes[10];
-        Instrucoes[] Instrucoes_5 = new Instrucoes[10];
-
+        Instrucoes[] Instrucoes = new Instrucoes[80];
 
         /*      GLOBAL VARIABLES       */
 
@@ -92,7 +78,8 @@ namespace Auto_click_atlas_2
 
         }
 
-        /*      ========== Get Pixel Color ==========     */
+        /* ========== Get Pixel Color END ========== */
+
         Color GetColorAt(int x, int y)
         {
             Bitmap bmp = new Bitmap(1, 1);
@@ -101,7 +88,6 @@ namespace Auto_click_atlas_2
                 g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
             return bmp.GetPixel(0, 0);
         }
-        /*      ========== Get Pixel Color ==========     */
 
         public void CorPixel()
         {
@@ -112,41 +98,22 @@ namespace Auto_click_atlas_2
                 corteste = GetColorAt(1200, 550);
                 tb_instrucoes.Text = corteste.ToString();
             }
-
-
         }
 
+        /* ========== Get Pixel Color END ========== */
 
-        /*      ========== KeyMouseHook - functions ==========     */
+        /* ========== KeyMouseHook ========== */
 
         private IKeyboardMouseEvents m_Events;
-        //private IMouseEvents m_MouseEvents;
-
-
 
         private void Subscribe(IKeyboardMouseEvents events)
         {
-
             m_Events = events;
 
             m_Events.MouseMove += M_Events_MouseMove;
             m_Events.MouseClick += M_Events_MouseClick;
-            //m_Events.MouseUpExt += M_Events_MouseClickExt;
-
             m_Events.KeyPress += M_Events_KeyPress;
-            m_Events.MouseDownExt += M_Events_MouseDownExt;
         }
-
-        //private void Subscribe2(IMouseEvents events)
-        //{
-
-        //}
-
-        //private void Unsubscribe2()
-        //{
-        //    m_MouseEvents.Dispose();
-        //    m_MouseEvents = null;
-        //}
 
         private void Unsubscribe()
         {
@@ -158,6 +125,8 @@ namespace Auto_click_atlas_2
             m_Events.Dispose();
             m_Events = null;
         }
+
+        /* ========== KeyMouseHook END========== */
 
         public void PerformClick(int X, int Y, char Key)
         {
@@ -208,42 +177,8 @@ namespace Auto_click_atlas_2
 
         private void setInstructionList(short x, short y, char key)
         {
-            switch (f_mode)
-            {
-                case 0:
-                    Instrucoes_Global[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-                case 1:
-                    Instrucoes_1[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-                case 2:
-                    Instrucoes_2[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-                case 3:
-                    Instrucoes_3[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-                case 4:
-                    Instrucoes_4[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-                case 5:
-                    Instrucoes_5[instructionNumber] = new Instrucoes(x, y, key);
-                    instructionNumber++;
-                    break;
-            }
-
-        }
-
-        private void InstructionQuantityIncrease()
-        {
-            instructionQuantity++;
-            lb_instructions_quantity.Text = instructionQuantity.ToString();
-            tb_instrucoes.SelectionStart = tb_instrucoes.TextLength;
-            tb_instrucoes.ScrollToCaret();
+            Instrucoes[instructionNumber] = new Instrucoes(x, y, key);
+            instructionNumber++;
         }
 
         private void M_Events_MouseMove(object sender, MouseEventArgs e)
@@ -264,49 +199,11 @@ namespace Auto_click_atlas_2
 
         private void M_Events_MouseClick(object sender, MouseEventArgs e)
         {
-            if (f_btn_record == true)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    tb_instrucoes.Text += string.Format("- Click L - X: {0} - Y: {1}\r\n", tb_X.Text, tb_Y.Text);
-                    setInstructionList(x, y, '¬');
-                    InstructionQuantityIncrease();
-                }
-                else if (e.Button == MouseButtons.Right)
-                {
-                    tb_instrucoes.Text += string.Format("- Click R - X: {0} - Y: {1}\r\n", tb_X.Text, tb_Y.Text);
-                    setInstructionList(x, y, '¨');
-                    InstructionQuantityIncrease();
-                }
 
-            }
         }
-
-        //private void M_Events_MouseClickExt(object sender, MouseEventExtArgs e)
-        //{
-        //if (!e.IsMouseButtonDown)
-        //{
-        //    tb_instrucoes.Text = string.Format("X = {0} - Y = {1} \r\n", e.X, e.Y);
-        //    tb_instrucoes.Text += "APERTADO!";
-        //    //System.Threading.Thread.Sleep(400);
-        //}
-
-        //if (e.IsMouseButtonUp)
-        //{
-        //    tb_instrucoes.Text += "SOLTO!!";
-        //    //System.Threading.Thread.Sleep(400);
-        //}
-
-
-        //}
-
 
         private void M_Events_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /* -  Fechar programa com ESC  - */
-            //if (e.KeyChar == 27 )                              <-- ***Fecha app com "ESC"***
-            //  System.Windows.Forms.Application.ExitThread();
-
             if (cb_enable_btns.Checked)
             {
                 //START
@@ -322,41 +219,10 @@ namespace Auto_click_atlas_2
                     //tb_instrucoes.Text = "SPACE HITED!";
                     Stop_Execution();
                 }
-
-            }   /* -----------END------------ */
+            }
         }
 
 
-
-        private void M_Events_MouseDownExt(object sender, MouseEventExtArgs e)
-        {
-            /*if (cb_repete.Checked == true)
-            {
-                tb_acoes.Text += "Verificacao iniciada!";
-
-                Thread thread2 = new Thread(t =>
-                {
-                    //if (e.IsMouseButtonDown == true)
-                    //{
-                    //    tb_instrucoes.Text += "APERTANDO!!";
-                    //    System.Threading.Thread.Sleep(100);
-
-                    //    M_Events_MouseDownExt(sender, e);
-                    //}
-
-                    if (e.IsMouseButtonUp == true)
-                    {
-                        tb_instrucoes.Text += "SOLTO!";
-                        System.Threading.Thread.Sleep(100);
-
-                        M_Events_MouseDownExt(sender, e);
-                    }
-                })
-                { IsBackground = true };
-                thread2.Start();
-
-            }*/
-        }
 
 
 
@@ -397,7 +263,6 @@ namespace Auto_click_atlas_2
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-
             startState++;
 
             if (startState == 1 && !f_stop && cb_enable_btns.Checked)
@@ -418,9 +283,9 @@ namespace Auto_click_atlas_2
                         do
                         {
                             //Instruction list global
-                            for (byte i = 0; i < Instrucoes_Global.Length; i++)
+                            for (byte i = 0; i < Instrucoes.Length; i++)
                             {
-                                if (Instrucoes_Global[0] == null)
+                                if (Instrucoes[0] == null)
                                 {
                                     Form frm = new Form { TopMost = true };
 
@@ -429,12 +294,12 @@ namespace Auto_click_atlas_2
                                     break;
                                 }
 
-                                if (Instrucoes_Global[i] == null || f_stop)
+                                if (Instrucoes[i] == null || f_stop)
                                 {
                                     break;
                                 }
 
-                                PerformClick(Instrucoes_Global[i].X, Instrucoes_Global[i].Y, Instrucoes_Global[i].Key);
+                                PerformClick(Instrucoes[i].X, Instrucoes[i].Y, Instrucoes[i].Key);
                             }
                         } while (repeticoes > 0 && !f_stop && !vazio);
                     }
@@ -446,11 +311,11 @@ namespace Auto_click_atlas_2
 
                     startState = 0;
 
-                    //if (indicesVazios == Instrucoes_Global.Length)
+                    //if (indicesVazios == Instrucoes.Length)
                     //  MessageBox.Show(new Form { TopMost = true }, "Não há Instrucoes para executar!!");
 
                 }
-)
+    )
                 { IsBackground = true };
                 thread1.Start();
 
@@ -574,6 +439,7 @@ namespace Auto_click_atlas_2
 
 
     }
-
-
 }
+
+
+
