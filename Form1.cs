@@ -153,9 +153,7 @@ namespace Auto_click_atlas_2
             if (m_Events == null) return;
             m_Events.MouseMove -= M_Events_MouseMove;
             m_Events.MouseClick -= M_Events_MouseClick;
-            //m_Events.MouseUpExt -= M_Events_MouseClickExt;
             m_Events.KeyPress -= M_Events_KeyPress;
-            m_Events.MouseDownExt -= M_Events_MouseDownExt;
 
             m_Events.Dispose();
             m_Events = null;
@@ -174,7 +172,6 @@ namespace Auto_click_atlas_2
                     mouse_event(MOUSEEVENTF_LEFTUP, X, Y, 0, 0);
 
                     System.Threading.Thread.Sleep(interval);
-
                 }
                 else if (Key == '¨')
                 {
@@ -183,43 +180,12 @@ namespace Auto_click_atlas_2
                     mouse_event(MOUSEEVENTF_RIGHTUP, X, Y, 2, 0);
 
                     System.Threading.Thread.Sleep(interval);
-
                 }
-                else if (Key == '$')
-                {
-
-
-                }
-
-                //gb_pause.BackColor = Color.Red;
-                //f_pause = true;
-
-                //while (f_pause)
-                //{
-                //    gb_pause.BackColor = Color.Red;
-                //    System.Threading.Thread.Sleep(100);
-                //    gb_pause.BackColor = Color.White;
-                //    System.Threading.Thread.Sleep(100);
-                //}
-
-
-
-                //while(btn_Continue.Focused != true)
-                //{
-                //    gb_pause.BackColor = Color.Red;
-                //}
-
-                //gb_pause.BackColor = Color.White;
             }
-
-
-
-
         }
 
         private void Stop_Execution()
         {
-
             stopState++;
 
             if (stopState == 1)
@@ -228,9 +194,7 @@ namespace Auto_click_atlas_2
                 btn_Stop.BackColor = Color.DarkRed;
                 btn_Stop.ForeColor = Color.White;
                 btn_Stop.Text = "LOCKED!";
-                //gb_pause.BackColor = Color.Red;
                 repeticoes = 0;
-                // tb_restante.Text = "0";
             }
             else if (stopState == 2)
             {
@@ -239,21 +203,11 @@ namespace Auto_click_atlas_2
                 btn_Stop.BackColor = Color.Gold;
                 btn_Stop.ForeColor = Color.Black;
                 btn_Stop.Text = "Stop (Space)";
-                //gb_pause.BackColor = Color.Transparent;
             }
         }
 
         private void setInstructionList(short x, short y, char key)
         {
-            //OverfloW
-            //if (instructionnumber > 10)
-            //{
-            //   btn_record.performclick();
-            // instructionnumber = 0;
-            //btn_clear.performclick();
-            //messagebox.show(new form { topmost = true }, "o maximo de 50 instrucoes foi atingido, a lista foi redefinida!");
-            //}
-
             switch (f_mode)
             {
                 case 0:
@@ -283,9 +237,6 @@ namespace Auto_click_atlas_2
             }
 
         }
-
-
-        // 
 
         private void InstructionQuantityIncrease()
         {
@@ -603,7 +554,7 @@ namespace Auto_click_atlas_2
                         else if (empty == 0)
                         {
                             MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;   
+                            break;
                         }
                         else
                         {
