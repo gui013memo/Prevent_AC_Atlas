@@ -49,6 +49,9 @@ namespace Auto_click_atlas_2
             this.tb_repete = new System.Windows.Forms.TextBox();
             this.lb_CurrentStep = new System.Windows.Forms.Label();
             this.lb_repete = new System.Windows.Forms.Label();
+            this.lb_TimeRestante = new System.Windows.Forms.Label();
+            this.lb_TimeRestante_num = new System.Windows.Forms.Label();
+            this.lb_Console = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,7 +168,7 @@ namespace Auto_click_atlas_2
             this.lb_StepCounter.BackColor = System.Drawing.Color.Black;
             this.lb_StepCounter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_StepCounter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lb_StepCounter.Location = new System.Drawing.Point(126, 33);
+            this.lb_StepCounter.Location = new System.Drawing.Point(287, 33);
             this.lb_StepCounter.Name = "lb_StepCounter";
             this.lb_StepCounter.Size = new System.Drawing.Size(109, 21);
             this.lb_StepCounter.TabIndex = 56;
@@ -226,7 +229,7 @@ namespace Auto_click_atlas_2
             this.tb_interval.BackColor = System.Drawing.Color.Black;
             this.tb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_interval.ForeColor = System.Drawing.Color.White;
-            this.tb_interval.Location = new System.Drawing.Point(377, 500);
+            this.tb_interval.Location = new System.Drawing.Point(272, 499);
             this.tb_interval.Name = "tb_interval";
             this.tb_interval.Size = new System.Drawing.Size(51, 23);
             this.tb_interval.TabIndex = 62;
@@ -239,7 +242,7 @@ namespace Auto_click_atlas_2
             this.lb_interval.BackColor = System.Drawing.Color.Black;
             this.lb_interval.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_interval.ForeColor = System.Drawing.Color.White;
-            this.lb_interval.Location = new System.Drawing.Point(375, 526);
+            this.lb_interval.Location = new System.Drawing.Point(270, 525);
             this.lb_interval.Name = "lb_interval";
             this.lb_interval.Size = new System.Drawing.Size(53, 15);
             this.lb_interval.TabIndex = 63;
@@ -250,7 +253,7 @@ namespace Auto_click_atlas_2
             this.tb_repete.BackColor = System.Drawing.Color.Black;
             this.tb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tb_repete.ForeColor = System.Drawing.Color.White;
-            this.tb_repete.Location = new System.Drawing.Point(375, 567);
+            this.tb_repete.Location = new System.Drawing.Point(374, 499);
             this.tb_repete.Name = "tb_repete";
             this.tb_repete.Size = new System.Drawing.Size(51, 23);
             this.tb_repete.TabIndex = 57;
@@ -263,7 +266,7 @@ namespace Auto_click_atlas_2
             this.lb_CurrentStep.BackColor = System.Drawing.Color.Black;
             this.lb_CurrentStep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_CurrentStep.ForeColor = System.Drawing.Color.White;
-            this.lb_CurrentStep.Location = new System.Drawing.Point(294, 33);
+            this.lb_CurrentStep.Location = new System.Drawing.Point(402, 33);
             this.lb_CurrentStep.Name = "lb_CurrentStep";
             this.lb_CurrentStep.Size = new System.Drawing.Size(19, 21);
             this.lb_CurrentStep.TabIndex = 64;
@@ -275,20 +278,59 @@ namespace Auto_click_atlas_2
             this.lb_repete.BackColor = System.Drawing.Color.Black;
             this.lb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_repete.ForeColor = System.Drawing.Color.White;
-            this.lb_repete.Location = new System.Drawing.Point(375, 593);
+            this.lb_repete.Location = new System.Drawing.Point(374, 525);
             this.lb_repete.Name = "lb_repete";
             this.lb_repete.Size = new System.Drawing.Size(53, 15);
             this.lb_repete.TabIndex = 65;
             this.lb_repete.Text = "Intervalo";
+            // 
+            // lb_TimeRestante
+            // 
+            this.lb_TimeRestante.AutoSize = true;
+            this.lb_TimeRestante.BackColor = System.Drawing.Color.Black;
+            this.lb_TimeRestante.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_TimeRestante.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_TimeRestante.Location = new System.Drawing.Point(252, 559);
+            this.lb_TimeRestante.Name = "lb_TimeRestante";
+            this.lb_TimeRestante.Size = new System.Drawing.Size(169, 30);
+            this.lb_TimeRestante.TabIndex = 67;
+            this.lb_TimeRestante.Text = "Tempo restante:";
+            // 
+            // lb_TimeRestante_num
+            // 
+            this.lb_TimeRestante_num.AutoSize = true;
+            this.lb_TimeRestante_num.BackColor = System.Drawing.Color.Black;
+            this.lb_TimeRestante_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_TimeRestante_num.ForeColor = System.Drawing.Color.White;
+            this.lb_TimeRestante_num.Location = new System.Drawing.Point(315, 589);
+            this.lb_TimeRestante_num.Name = "lb_TimeRestante_num";
+            this.lb_TimeRestante_num.Size = new System.Drawing.Size(47, 21);
+            this.lb_TimeRestante_num.TabIndex = 68;
+            this.lb_TimeRestante_num.Text = "1h30";
+            // 
+            // lb_Console
+            // 
+            this.lb_Console.AutoSize = true;
+            this.lb_Console.BackColor = System.Drawing.Color.Black;
+            this.lb_Console.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Console.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_Console.Location = new System.Drawing.Point(12, 44);
+            this.lb_Console.Name = "lb_Console";
+            this.lb_Console.Size = new System.Drawing.Size(66, 21);
+            this.lb_Console.TabIndex = 69;
+            this.lb_Console.Text = "Console";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::AutoClick_ATL.Properties.Resources.Template_Atlas_Black1;
+            this.BackgroundImage = global::AutoClick_ATL.Properties.Resources.Template_Atlas_Black_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(464, 643);
+            this.Controls.Add(this.lb_Console);
+            this.Controls.Add(this.lb_TimeRestante_num);
+            this.Controls.Add(this.lb_TimeRestante);
             this.Controls.Add(this.lb_repete);
             this.Controls.Add(this.lb_CurrentStep);
             this.Controls.Add(this.tb_instrucoes);
@@ -379,6 +421,9 @@ namespace Auto_click_atlas_2
         private System.Windows.Forms.Label lb_interval;
         private System.Windows.Forms.TextBox tb_repete;
         private System.Windows.Forms.Label lb_repete;
+        private System.Windows.Forms.Label lb_TimeRestante;
+        private System.Windows.Forms.Label lb_TimeRestante_num;
+        private System.Windows.Forms.Label lb_Console;
     }
 }
 
