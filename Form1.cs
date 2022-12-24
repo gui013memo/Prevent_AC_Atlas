@@ -13,8 +13,8 @@ using System.IO;
  * - Carregar corretamente a Lista de Instrucoes 
  * 
  * - Executar corretamente os clicks
- *      - Conforme Cordenadas
- *      - Conforme intervalo escolhido
+ *      - Conforme Cordenadas -NOW
+ *      - Conforme intervalo escolhido -OK
  *      
  * - Validacao por pixel
  *      - Incluir na Lista de Instrucoes as cordenadas do pixel ser avaliado
@@ -282,7 +282,6 @@ namespace Auto_click_atlas_2
                         bool vazio = false;
                         do
                         {
-                            //Instruction list global
                             for (byte i = 0; i < Instrucoes.Length; i++)
                             {
                                 if (Instrucoes[0] == null)
@@ -336,7 +335,7 @@ namespace Auto_click_atlas_2
 
         /* ---- TEXT BOX ---- */
 
-        private void tb_interval_TextChanged(object sender, EventArgs e)
+        private void tb_interval_TextChanged_1(object sender, EventArgs e)
         {
             string digitsOnly = String.Empty;
             foreach (char c in tb_interval.Text) //Formatacao para permitir somente numeros no TextBox evitando letras

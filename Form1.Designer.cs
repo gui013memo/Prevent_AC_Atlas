@@ -235,6 +235,7 @@ namespace Auto_click_atlas_2
             this.tb_interval.TabIndex = 62;
             this.tb_interval.Text = "0";
             this.tb_interval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_interval.TextChanged += new System.EventHandler(this.tb_interval_TextChanged_1);
             // 
             // lb_interval
             // 
@@ -278,11 +279,11 @@ namespace Auto_click_atlas_2
             this.lb_repete.BackColor = System.Drawing.Color.Black;
             this.lb_repete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_repete.ForeColor = System.Drawing.Color.White;
-            this.lb_repete.Location = new System.Drawing.Point(374, 525);
+            this.lb_repete.Location = new System.Drawing.Point(369, 525);
             this.lb_repete.Name = "lb_repete";
-            this.lb_repete.Size = new System.Drawing.Size(53, 15);
+            this.lb_repete.Size = new System.Drawing.Size(64, 15);
             this.lb_repete.TabIndex = 65;
-            this.lb_repete.Text = "Intervalo";
+            this.lb_repete.Text = "Repeticoes";
             // 
             // lb_TimeRestante
             // 
