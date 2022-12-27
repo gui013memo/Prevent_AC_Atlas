@@ -8,13 +8,23 @@ using System.Diagnostics;
 using Gma.System.MouseKeyHook;
 using System.IO;
 
+/* MODELO LISTA DE INSTRUCOES: 
+ 
+- Click L - X: 280 - Y: 430
+- Click L - X: 1000 - Y: 430
+- Click L - X: 1000 - Y: 1000
+- Click L - X: 280 - Y: 1000
+ 
+ */
+
 /*  TO DO 
  *
  * - Carregar corretamente a Lista de Instrucoes 
  * 
  * - Executar corretamente os clicks
- *      - Conforme Cordenadas -NOW
- *      - Conforme intervalo escolhido -OK
+ *      - Conforme Cordenadas - OK
+ *      - Conforme intervalo escolhido - OK
+ *      - Repeticoes - NOW
  *      
  * - Validacao por pixel
  *      - Incluir na Lista de Instrucoes as cordenadas do pixel ser avaliado
@@ -26,10 +36,12 @@ using System.IO;
  *      - Add label "OS encerradas"
  *      - Add label "Tempo estimado"
  *      
- *  /============ BUG FIX ============/
+ *  /======== BUG FIX ========/
  *  
  *  - Ao tentar carregar uma IL, se o usuario noa selecionar um arquivo e pressioanr "ESC" ocorre erro: "Empty path name is not legal"
  *  
+ *  /======== IMPROVEMENTS ========/
+ *  Validacao de array vazio (lista de intrucoes vazia) ocorrendo a cada click, deve ocorrer apenas no primerio click do array
  */
 
 namespace Auto_click_atlas_2
@@ -265,10 +277,9 @@ namespace Auto_click_atlas_2
         {
             startState++;
 
-            if (startState == 1 && !f_stop && cb_enable_btns.Checked)
-            {
-                Thread thread1 = new Thread(t =>
+            Thread thread1 = new Thread(t =>
                 {
+                    if (startState == 1 && !f_stop && cb_enable_btns.Checked)
                     {
                         tb_instrucoes.Text = "START!";
 
@@ -276,18 +287,18 @@ namespace Auto_click_atlas_2
                         btn_Start.BackColor = Color.ForestGreen; btn_Start.ForeColor = Color.White;
                         btn_Start.Refresh();
 
-                        repeticoes++;
-
-
+                        lb_OS_restante.Text = repeticoes.ToString();
                         bool vazio = false;
+
                         do
                         {
+                            repeticoes--;
+                            lb_OS_restante.Text = repeticoes.ToString();
+
                             for (byte i = 0; i < Instrucoes.Length; i++)
                             {
                                 if (Instrucoes[0] == null)
                                 {
-                                    Form frm = new Form { TopMost = true };
-
                                     MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes para executar!", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     vazio = true;
                                     break;
@@ -315,10 +326,10 @@ namespace Auto_click_atlas_2
 
                 }
     )
-                { IsBackground = true };
-                thread1.Start();
+            { IsBackground = true };
+            thread1.Start();
 
-            }
+
 
         }
         /* --- BUTTONS END --- */
@@ -349,7 +360,7 @@ namespace Auto_click_atlas_2
             tb_interval.Text = digitsOnly;
         }
 
-        private void tb_repete_TextChanged(object sender, EventArgs e)
+        private void tb_repete_TextChanged_1(object sender, EventArgs e)
         {
             string digitsOnly = String.Empty;
             foreach (char c in tb_repete.Text)//Formatacao para permitir somente numeros no TextBox evitando letras
