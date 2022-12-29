@@ -281,6 +281,9 @@ namespace Auto_click_atlas_2
                 {
                     if (startState == 1 && !f_stop && cb_enable_btns.Checked)
                     {
+                        Int16.TryParse(tb_repete.Text, out short repeticaoes_);
+                        repeticoes = repeticaoes_;
+
                         tb_instrucoes.Text = "START!";
 
                         btn_Start.Text = "RUNNING!";
@@ -288,10 +291,19 @@ namespace Auto_click_atlas_2
                         btn_Start.Refresh();
 
                         lb_OS_restante.Text = repeticoes.ToString();
+                        
                         bool vazio = false;
+                        bool nonexecution = false;
+                        if (repeticoes < 1)
+                            nonexecution= true;
 
                         do
                         {
+                            if (repeticoes < 1)
+                            {
+                                MessageBox.Show(new Form { TopMost = true }, "Numero de execucoes igual a 0!", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+                            }
                             repeticoes--;
                             lb_OS_restante.Text = repeticoes.ToString();
 
