@@ -18,6 +18,7 @@ using System.IO;
  */
 
 /*  TO DO 
+ ***** *  EM -> row 271 (pulling out the validation of empty list or empty number of execution*****
  *
  * - Carregar corretamente a Lista de Instrucoes 
  * 
@@ -81,11 +82,18 @@ namespace Auto_click_atlas_2
         byte instructionNumber = 0;
         Instrucoes[] Instrucoes = new Instrucoes[80];
 
+        void Initinstrucoes()
+        {
+            Instrucoes[0] = new Instrucoes(1, 1, '¬', 1, 1);
+        }
+
+
         /*      GLOBAL VARIABLES       */
 
         public Form1()
         {
             InitializeComponent();
+            Initinstrucoes();
 
         }
 
@@ -186,9 +194,9 @@ namespace Auto_click_atlas_2
             }
         }
 
-        private void setInstructionList(short x, short y, char key)
+        private void setInstructionList(short x, short y, char key, short PX, short PY)
         {
-            Instrucoes[instructionNumber] = new Instrucoes(x, y, key);
+            Instrucoes[instructionNumber] = new Instrucoes(x, y, key, PX, PY);
         }
 
         private void M_Events_MouseMove(object sender, MouseEventArgs e)
@@ -232,41 +240,7 @@ namespace Auto_click_atlas_2
             }
         }
 
-
-
-
-
         //      ========== KeyMouseHook - END - functions ==========
-
-
-
-        /* ---- FUNCOES END ----*/
-
-        /* --- BUTTONS --- */
-
-        private void btn_Pause_Click(object sender, EventArgs e)
-        {
-            if (cb_enable_btns.Checked && f_btn_record)
-            {
-                tb_instrucoes.Text += "- # # PAUSA # #\r\n";
-                setInstructionList(x, y, '$');
-            }
-        }
-
-        //private void btn_Select_Click(object sender, EventArgs e)
-        //{
-        //    if (cb_enable_btns.Checked && f_btn_record)
-        //    {
-        //        setInstructionList(x, y, 's');
-        //        tb_instrucoes.Text += "### SELECT ###\r\n";
-
-
-        //    }
-        //}
-
-
-        //      ======= Botoes END =======
-
 
         //      ======= User Functions =======
 
@@ -291,17 +265,15 @@ namespace Auto_click_atlas_2
                         lb_OS_restante.Text = repeticoes.ToString();
 
                         bool vazio = false;
-                        bool nonexecution = false;
-                        if (repeticoes < 1)
-                            nonexecution = true;
 
+                        if (repeticoes < 1)
+                        {
+                            MessageBox.Show(new Form { TopMost = true }, "Numero de execuções igual a 0", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         do
                         {
-                            if (repeticoes < 1)
-                            {
-                                MessageBox.Show(new Form { TopMost = true }, "Numero de execuções igual a 0", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                break;
-                            }
+
                             repeticoes--;
                             lb_OS_restante.Text = repeticoes.ToString();
 
@@ -397,7 +369,7 @@ namespace Auto_click_atlas_2
             var form = new form2 { TopMost = true };
             form.Show();
         }
-            
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Unsubscribe();

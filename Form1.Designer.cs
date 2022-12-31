@@ -34,8 +34,6 @@ namespace Auto_click_atlas_2
             this.btn_Stop = new System.Windows.Forms.Button();
             this.cb_enable_btns = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.carregarListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tb_instrucoes = new System.Windows.Forms.TextBox();
@@ -98,7 +96,7 @@ namespace Auto_click_atlas_2
             this.cb_enable_btns.ForeColor = System.Drawing.Color.White;
             this.cb_enable_btns.Location = new System.Drawing.Point(140, 257);
             this.cb_enable_btns.Name = "cb_enable_btns";
-            this.cb_enable_btns.Size = new System.Drawing.Size(271, 34);
+            this.cb_enable_btns.Size = new System.Drawing.Size(183, 24);
             this.cb_enable_btns.TabIndex = 27;
             this.cb_enable_btns.Text = "HABILITAR CONTROLES";
             this.cb_enable_btns.UseVisualStyleBackColor = false;
@@ -109,30 +107,12 @@ namespace Auto_click_atlas_2
             this.menuStrip1.BackColor = System.Drawing.Color.Gray;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
             this.creditosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(464, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(464, 24);
             this.menuStrip1.TabIndex = 46;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // arquivoToolStripMenuItem
-            // 
-            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.carregarListaToolStripMenuItem});
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
-            this.arquivoToolStripMenuItem.Text = "&Arquivo";
-            // 
-            // carregarListaToolStripMenuItem
-            // 
-            this.carregarListaToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
-            this.carregarListaToolStripMenuItem.Name = "carregarListaToolStripMenuItem";
-            this.carregarListaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.carregarListaToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
-            this.carregarListaToolStripMenuItem.Text = "Carregar lista";
-            this.carregarListaToolStripMenuItem.Click += new System.EventHandler(this.carregarListaToolStripMenuItem_Click);
             // 
             // creditosToolStripMenuItem
             // 
@@ -140,14 +120,14 @@ namespace Auto_click_atlas_2
             this.creditosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.creditosToolStripMenuItem1});
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
-            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.creditosToolStripMenuItem.Text = "&Sobre";
             // 
             // creditosToolStripMenuItem1
             // 
             this.creditosToolStripMenuItem1.BackColor = System.Drawing.Color.Gray;
             this.creditosToolStripMenuItem1.Name = "creditosToolStripMenuItem1";
-            this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(180, 34);
+            this.creditosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.creditosToolStripMenuItem1.Text = "&Creditos";
             this.creditosToolStripMenuItem1.Click += new System.EventHandler(this.creditosToolStripMenuItem1_Click);
             // 
@@ -171,7 +151,7 @@ namespace Auto_click_atlas_2
             this.lb_StepCounter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lb_StepCounter.Location = new System.Drawing.Point(287, 33);
             this.lb_StepCounter.Name = "lb_StepCounter";
-            this.lb_StepCounter.Size = new System.Drawing.Size(162, 32);
+            this.lb_StepCounter.Size = new System.Drawing.Size(109, 21);
             this.lb_StepCounter.TabIndex = 56;
             this.lb_StepCounter.Text = "Step Counter";
             // 
@@ -183,7 +163,7 @@ namespace Auto_click_atlas_2
             this.tb_X.Location = new System.Drawing.Point(163, 218);
             this.tb_X.Name = "tb_X";
             this.tb_X.ReadOnly = true;
-            this.tb_X.Size = new System.Drawing.Size(51, 31);
+            this.tb_X.Size = new System.Drawing.Size(51, 23);
             this.tb_X.TabIndex = 58;
             this.tb_X.Text = "0";
             this.tb_X.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -196,7 +176,7 @@ namespace Auto_click_atlas_2
             this.tb_Y.Location = new System.Drawing.Point(261, 218);
             this.tb_Y.Name = "tb_Y";
             this.tb_Y.ReadOnly = true;
-            this.tb_Y.Size = new System.Drawing.Size(51, 31);
+            this.tb_Y.Size = new System.Drawing.Size(51, 23);
             this.tb_Y.TabIndex = 59;
             this.tb_Y.Text = "0";
             this.tb_Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -209,7 +189,7 @@ namespace Auto_click_atlas_2
             this.lb_X.ForeColor = System.Drawing.Color.White;
             this.lb_X.Location = new System.Drawing.Point(140, 221);
             this.lb_X.Name = "lb_X";
-            this.lb_X.Size = new System.Drawing.Size(29, 25);
+            this.lb_X.Size = new System.Drawing.Size(18, 15);
             this.lb_X.TabIndex = 60;
             this.lb_X.Text = "X:";
             // 
@@ -221,7 +201,7 @@ namespace Auto_click_atlas_2
             this.lb_Y.ForeColor = System.Drawing.Color.White;
             this.lb_Y.Location = new System.Drawing.Point(238, 222);
             this.lb_Y.Name = "lb_Y";
-            this.lb_Y.Size = new System.Drawing.Size(28, 25);
+            this.lb_Y.Size = new System.Drawing.Size(17, 15);
             this.lb_Y.TabIndex = 61;
             this.lb_Y.Text = "Y:";
             // 
@@ -232,7 +212,7 @@ namespace Auto_click_atlas_2
             this.tb_interval.ForeColor = System.Drawing.Color.White;
             this.tb_interval.Location = new System.Drawing.Point(261, 499);
             this.tb_interval.Name = "tb_interval";
-            this.tb_interval.Size = new System.Drawing.Size(78, 31);
+            this.tb_interval.Size = new System.Drawing.Size(78, 23);
             this.tb_interval.TabIndex = 62;
             this.tb_interval.Text = "0";
             this.tb_interval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -246,7 +226,7 @@ namespace Auto_click_atlas_2
             this.lb_interval.ForeColor = System.Drawing.Color.White;
             this.lb_interval.Location = new System.Drawing.Point(258, 533);
             this.lb_interval.Name = "lb_interval";
-            this.lb_interval.Size = new System.Drawing.Size(81, 25);
+            this.lb_interval.Size = new System.Drawing.Size(53, 15);
             this.lb_interval.TabIndex = 63;
             this.lb_interval.Text = "Intervalo";
             // 
@@ -257,7 +237,7 @@ namespace Auto_click_atlas_2
             this.tb_repete.ForeColor = System.Drawing.Color.White;
             this.tb_repete.Location = new System.Drawing.Point(357, 499);
             this.tb_repete.Name = "tb_repete";
-            this.tb_repete.Size = new System.Drawing.Size(86, 31);
+            this.tb_repete.Size = new System.Drawing.Size(86, 23);
             this.tb_repete.TabIndex = 63;
             this.tb_repete.Text = "1";
             this.tb_repete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -271,7 +251,7 @@ namespace Auto_click_atlas_2
             this.lb_CurrentStep.ForeColor = System.Drawing.Color.White;
             this.lb_CurrentStep.Location = new System.Drawing.Point(402, 33);
             this.lb_CurrentStep.Name = "lb_CurrentStep";
-            this.lb_CurrentStep.Size = new System.Drawing.Size(28, 32);
+            this.lb_CurrentStep.Size = new System.Drawing.Size(19, 21);
             this.lb_CurrentStep.TabIndex = 64;
             this.lb_CurrentStep.Text = "0";
             // 
@@ -283,7 +263,7 @@ namespace Auto_click_atlas_2
             this.lb_repete.ForeColor = System.Drawing.Color.White;
             this.lb_repete.Location = new System.Drawing.Point(357, 533);
             this.lb_repete.Name = "lb_repete";
-            this.lb_repete.Size = new System.Drawing.Size(92, 25);
+            this.lb_repete.Size = new System.Drawing.Size(62, 15);
             this.lb_repete.TabIndex = 65;
             this.lb_repete.Text = "Execuções";
             // 
@@ -295,7 +275,7 @@ namespace Auto_click_atlas_2
             this.lb_TimeRestante.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lb_TimeRestante.Location = new System.Drawing.Point(301, 570);
             this.lb_TimeRestante.Name = "lb_TimeRestante";
-            this.lb_TimeRestante.Size = new System.Drawing.Size(110, 32);
+            this.lb_TimeRestante.Size = new System.Drawing.Size(73, 21);
             this.lb_TimeRestante.TabIndex = 67;
             this.lb_TimeRestante.Text = "Restante:";
             // 
@@ -307,7 +287,7 @@ namespace Auto_click_atlas_2
             this.lb_TimeRestante_num.ForeColor = System.Drawing.Color.White;
             this.lb_TimeRestante_num.Location = new System.Drawing.Point(258, 602);
             this.lb_TimeRestante_num.Name = "lb_TimeRestante_num";
-            this.lb_TimeRestante_num.Size = new System.Drawing.Size(70, 32);
+            this.lb_TimeRestante_num.Size = new System.Drawing.Size(47, 21);
             this.lb_TimeRestante_num.TabIndex = 68;
             this.lb_TimeRestante_num.Text = "1h30";
             // 
@@ -319,7 +299,7 @@ namespace Auto_click_atlas_2
             this.lb_Console.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lb_Console.Location = new System.Drawing.Point(12, 44);
             this.lb_Console.Name = "lb_Console";
-            this.lb_Console.Size = new System.Drawing.Size(100, 32);
+            this.lb_Console.Size = new System.Drawing.Size(66, 21);
             this.lb_Console.TabIndex = 69;
             this.lb_Console.Text = "Console";
             // 
@@ -331,7 +311,7 @@ namespace Auto_click_atlas_2
             this.lb_OS_restante.ForeColor = System.Drawing.Color.White;
             this.lb_OS_restante.Location = new System.Drawing.Point(402, 602);
             this.lb_OS_restante.Name = "lb_OS_restante";
-            this.lb_OS_restante.Size = new System.Drawing.Size(28, 32);
+            this.lb_OS_restante.Size = new System.Drawing.Size(19, 21);
             this.lb_OS_restante.TabIndex = 70;
             this.lb_OS_restante.Text = "0";
             // 
@@ -404,8 +384,6 @@ namespace Auto_click_atlas_2
         private System.Windows.Forms.CheckBox cb_consulta;
         private System.Windows.Forms.Label lb_consulta2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem carregarListaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
