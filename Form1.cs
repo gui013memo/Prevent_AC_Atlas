@@ -24,7 +24,7 @@ using System.IO;
  * - Executar corretamente os clicks
  *      - Conforme Cordenadas - OK
  *      - Conforme intervalo escolhido - OK
- *      - Repeticoes - NOW
+ *      - Repeticoes - OK
  *      
  * - Validacao por pixel
  *      - Incluir na Lista de Instrucoes as cordenadas do pixel ser avaliado
@@ -78,7 +78,6 @@ namespace Auto_click_atlas_2
         short repeticoes = 0;
 
         // INSTRUCTIONS
-        byte instructionQuantity = 0;
         byte instructionNumber = 0;
         Instrucoes[] Instrucoes = new Instrucoes[80];
 
@@ -190,7 +189,6 @@ namespace Auto_click_atlas_2
         private void setInstructionList(short x, short y, char key)
         {
             Instrucoes[instructionNumber] = new Instrucoes(x, y, key);
-            instructionNumber++;
         }
 
         private void M_Events_MouseMove(object sender, MouseEventArgs e)
@@ -291,17 +289,17 @@ namespace Auto_click_atlas_2
                         btn_Start.Refresh();
 
                         lb_OS_restante.Text = repeticoes.ToString();
-                        
+
                         bool vazio = false;
                         bool nonexecution = false;
                         if (repeticoes < 1)
-                            nonexecution= true;
+                            nonexecution = true;
 
                         do
                         {
                             if (repeticoes < 1)
                             {
-                                MessageBox.Show(new Form { TopMost = true }, "Numero de execucoes igual a 0!", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(new Form { TopMost = true }, "Numero de execuções igual a 0", "Auto Clicker - ATLAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 break;
                             }
                             repeticoes--;
@@ -399,61 +397,7 @@ namespace Auto_click_atlas_2
             var form = new form2 { TopMost = true };
             form.Show();
         }
-
-        private void carregarListaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            if (cb_enable_btns.Checked)
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Lista de instrucoes | *.txt";
-                ofd.ShowDialog();
-
-                using (StreamReader reader = new StreamReader(ofd.FileName))
-                {
-                    string line;
-                    short empty = 0;
-
-                    do
-                    {
-                        line = reader.ReadLine();
-
-                        if (line != null)
-                        {
-                            empty++;
-
-                            if (line.Contains("Click L"))
-                            {
-                                Int16.TryParse(line.Substring(15, 4), out short xParsed);
-
-                                Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
-
-                                setInstructionList(xParsed, yParsed, '¬');
-                            }
-                            else if (line.Contains("Click R"))
-                            {
-                                Int16.TryParse(line.Substring(15, 4), out short xParsed);
-                                Int16.TryParse(line.Substring(24, (line.Length - 24)), out short yParsed);
-
-                                setInstructionList(xParsed, yParsed, '¨');
-                            }
-                        }
-                        else if (empty == 0)
-                        {
-                            MessageBox.Show(new Form { TopMost = true }, "Nao há instrucoes no Arquivo", "Prevent AC Atlas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
-                        else
-                        {
-                            tb_instrucoes.Text = "Lista carregada!";
-                        }
-
-                    } while (line != null);
-                }
-            }
-
-        }
-
+            
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Unsubscribe();

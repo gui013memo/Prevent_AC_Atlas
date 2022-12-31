@@ -6,13 +6,17 @@ public class Instrucoes
     public short X;
     public short Y;
     public char Key;
+    public short PX;
+    public short PY;
     
-    public Instrucoes(short X, short Y, char Key)
+    public Instrucoes(short X, short Y, char Key, short PX, short PY)
     {
         //this.Number = number;
         this.X = X;
         this.Y = Y;
         this.Key = Key;    
+        this.PX = PX;
+        this.PY = PY;
     }
 
     public string toString()

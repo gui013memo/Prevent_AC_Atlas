@@ -1,4 +1,4 @@
-﻿- Click L - X: 280 - Y: 430
-- Click L - X: 1000 - Y: 430
-- Click L - X: 1000 - Y: 1000
-- Click L - X: 280 - Y: 1000
+﻿- Click L - X: 280 - Y: 430 - PX: 280 - PY: 430
+- Click L - X: 1000 - Y: 430 - PX: 1000 - PY: 430
+- Click L - X: 1000 - Y: 1000 - PX: 1000 - PY: 1000
+- Click L - X: 280 - Y: 1000 - PX: 280 - PY: 1000
